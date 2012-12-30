@@ -71,17 +71,19 @@ else
 
 endif " has("autocmd")
 
-" if has("folding")
-  " set foldenable
-  " set foldmethod=syntax
-  " set foldlevel=1
-  " set foldnestmax=2
-  " set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
-" endif
+if has("folding")
+  set foldenable
+  set foldmethod=syntax
+  set foldlevel=1
+  set foldnestmax=2
+  set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+endif
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
 
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
+" Softtabs, 4 spaces
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 " Always display the status line
@@ -147,8 +149,8 @@ imap <Tab> <C-N>
 
 imap <C-L> <Space>=><Space>
 
-" Display extra whitespace
-" set list listchars=tab:»·,trail:·
+" Display extra whitespace and tabs
+set list listchars=tab:»·,trail:·
 
 " Edit routes
 command! Rroutes :e config/routes.rb
@@ -205,3 +207,28 @@ function! OpenURL()
 endfunction
 map <Leader>w :call OpenURL()<CR>
 
+" settings from my old vimrc
+set backup " make backup files
+set backupdir=~/.vim/backup " where to put backup files
+set clipboard+=unnamed "share windows clipboard
+set incsearch " BUT do highlight as you type you as type search keyword
+set whichwrap+=<,>,h,l "move to the previous/next line after reaching first/last character in the line
+set nocompatible
+set showmatch "Highlights matching brace
+set virtualedit=all "Inserts spaces when cursor is moved up/down, press i and new line has ended before cursor
+set scrolloff=4 "Number of lines below and above the cursor
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+"              | | | | |  |   |      |  |     |    |
+"              "              | | | | |  |   |      |  |     |    + current
+"              "              | | | | |  |   |      |  |     |       column
+"              "              | | | | |  |   |      |  |     +-- current line
+"              "              | | | | |  |   |      |  +-- current % into file
+"              "              | | | | |  |   |      +-- current syntax in
+"              "              | | | | |  |   |          square brackets
+"              "              | | | | |  |   +-- current fileformat
+"              "              | | | | |  +-- number of lines
+"              "              | | | | +-- preview flag in square brackets
+"              "              | | | +-- help flag in square brackets
+"              "              | | +-- readonly flag in square brackets
+"              "              | +-- rodified flag in square brackets
+"              "              +-- full path to file in the buffer
