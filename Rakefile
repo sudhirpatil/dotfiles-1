@@ -9,6 +9,7 @@ task :install do
   files = Dir['*'] - %w[Rakefile README.rdoc LICENSE oh-my-zsh]
   files << "oh-my-zsh/custom/plugins/rbates"
   files << "oh-my-zsh/custom/rbates.zsh-theme"
+  files << "yahoo"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
@@ -56,19 +57,23 @@ def link_file(file)
   end
 end
 
+task :switch_to_zsh do
+  switch_to_zsh
+end
+
 def switch_to_zsh
-  if ENV["SHELL"] =~ /zsh/
+  if $SHELL =~ /zsh/
     puts "using zsh"
   else
     print "switch to zsh? (recommended) [ynq] "
     case $stdin.gets.chomp
-    when 'y'
-      puts "switching to zsh"
-      system %Q{chsh -s `which zsh`}
+    when 'n'
+      puts "skipping zsh"
     when 'q'
       exit
     else
-      puts "skipping zsh"
+      puts "switching to zsh"
+      system %Q{chsh -s `which zsh`}
     end
   end
 end
