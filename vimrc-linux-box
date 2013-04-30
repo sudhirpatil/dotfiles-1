@@ -1,0 +1,60 @@
+set number
+set ai "enable aluto indentation
+set backspace=indent,eol,start " make backspace a more flexible
+set backup " make backup files
+set backupdir=~/.vim/backup " where to put backup files
+set clipboard^=unnamed " share windows clipboard
+set directory=~/.vim/tmp " directory to place swap files in
+set incsearch " BUT do highlight as you type you as type search keyword
+set laststatus=2 " always show the status line
+set whichwrap+=<,>,h,l
+set nocompatible
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set showmatch
+syntax on
+set virtualedit=all
+set incsearch
+set mouse=a " use mouse everywhere
+set listchars=tab:>-,trail:- " show tabs and trailing
+set scrolloff=2
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+"              | | | | |  |   |      |  |     |    |
+"              | | | | |  |   |      |  |     |    + current 
+"              | | | | |  |   |      |  |     |       column
+"              | | | | |  |   |      |  |     +-- current line
+"              | | | | |  |   |      |  +-- current % into file
+"              | | | | |  |   |      +-- current syntax in 
+"              | | | | |  |   |          square brackets
+"              | | | | |  |   +-- current fileformat
+"              | | | | |  +-- number of lines
+"              | | | | +-- preview flag in square brackets
+"              | | | +-- help flag in square brackets
+"              | | +-- readonly flag in square brackets
+"              | +-- rodified flag in square brackets
+"              +-- full path to file in the buffer
+set ignorecase " case insensitive by default
+set infercase " case inferred by default
+retab
+"autocmd VimEnter * NERDTree "Start nerdTree Automatically
+:filetype plugin on
+"au BufNewFile,BufRead *.xml,*.htm,*.html so XMLFolding
+
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+"set foldenable
+"set foldmethod=marker
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+
+"To enable jslint js syntax check
+"map <F8> : call JavaScriptLint()<CR>
+"func! JavaScriptLint()
+"exec “w” 
+"exec “!jsl -process % “
+"endfunc
