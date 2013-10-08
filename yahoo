@@ -1,5 +1,9 @@
 # Aliases for for servers
 alias desktop='ssh gentledog.singapore.corp.yahoo.com'
+alias touchdown='ssh boomedconsumed.corp.gq1.yahoo.com'
+alias bosonrun='ssh lastpassed.corp.gq1.yahoo.com'
+alias bosonrunsg3='vexedperplexed.corp.sg3.yahoo.com'
+alias yqlplus='ssh newestfewest.corp.sg3.yahoo.com'
 
 function sshlego() {
   hostName="$1.$2.global.media.pool.sp2.yahoo.com"
@@ -8,9 +12,13 @@ function sshlego() {
 }
 
 #Exports/settings for svn
-export SVN_SSH=/usr/local/bin/yssh
+#export SVN_SSH=/usr/local/bin/yssh
+export CATALINA_OPTS='-Dyql_config=/code/git/yql-v2/myconfig/'
 export SVNROOT=svn+ssh://svn.corp.yahoo.com/
 export SVN_EDITOR=/usr/bin/vim
 
 #export PATH=${PATH}:/home/y/bin:/usr/local/bin/
 export LEGO_SRC_ROOT=/home/sudhirp/lego
+
+# Export path for utils
+export PATH=$PATH:~/utils

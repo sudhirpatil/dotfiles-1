@@ -50,7 +50,7 @@ if has("autocmd")
   au!
 
   " For all text files set 'textwidth' to 78 characters.
-  " autocmd FileType text setlocal textwidth=78
+  autocmd FileType text setlocal textwidth=78
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -213,6 +213,9 @@ set backupdir=~/.vim/backup " where to put backup files
 set clipboard+=unnamed "share windows clipboard
 set incsearch " BUT do highlight as you type you as type search keyword
 set whichwrap+=<,>,h,l "move to the previous/next line after reaching first/last character in the line
+set wrap
+set linebreak
+set nolist  " list disables linebreak
 set nocompatible
 set showmatch "Highlights matching brace
 set virtualedit=all "Inserts spaces when cursor is moved up/down, press i and new line has ended before cursor
