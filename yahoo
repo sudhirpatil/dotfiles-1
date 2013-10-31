@@ -2,8 +2,10 @@
 alias desktop='ssh gentledog.singapore.corp.yahoo.com'
 alias touchdown='ssh boomedconsumed.corp.gq1.yahoo.com'
 alias bosonrun='ssh lastpassed.corp.gq1.yahoo.com'
-alias bosonrunsg3='vexedperplexed.corp.sg3.yahoo.com'
+alias bosonrunsg3='ssh vexedperplexed.corp.sg3.yahoo.com'
 alias yqlplus='ssh newestfewest.corp.sg3.yahoo.com'
+alias ci1='ssh ci1.ps.mobile.singapore.corp.yahoo.com'
+alias ci2='ssh ci2.ps.mobile.singapore.corp.yahoo.com'
 
 function sshlego() {
   hostName="$1.$2.global.media.pool.sp2.yahoo.com"
